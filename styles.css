@@ -105,8 +105,9 @@ body {
 
 .parent .overlay {
   position: absolute;
-  width: 250px;
+  width: 110%;
   height: 125px;
+  left: -2px;
   top: 98%;
   z-index: 3;
   background: #fff;
