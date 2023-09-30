@@ -94,7 +94,7 @@ body {
 .parent .back::before {
   content: "";
   position: absolute;
-  right: 0;
+  right: -1px;
   top: -7px;
   width: 50%;
   height: 30px;
