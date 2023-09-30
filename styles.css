@@ -1,0 +1,245 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #aa27f9;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+html {
+  overflow: hidden;
+}
+
+body {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 0.025em;
+}
+
+.parent {
+  width: 250px;
+  height: 250px;
+  position: relative;
+  perspective: 1000px;
+  margin-top: 150px;
+}
+
+.parent .hover {
+  width: 270px;
+  height: 137px;
+  position: absolute;
+  left: 50%;
+  top: 70.5%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}
+
+.parent .hover:hover {
+  width: 580px;
+  height: 404px;
+  left: 150px;
+  top: 75px;
+}
+
+.parent .front {
+  position: absolute;
+  background: var(--primary);
+  width: 100%;
+  height: 100%;
+  transition: all 0.35s ease-in-out;
+  transform-style: preserve-3d;
+  transform: rotateX(-30deg);
+  top: 30px;
+  z-index: 1;
+  top: 120px;
+}
+
+.parent .hover:hover ~ .front {
+  transform: rotateX(-50deg);
+}
+
+.parent .front h1.front-content {
+  position: absolute;
+  left: 50%;
+  top: 66px;
+  transform: translate(-50%, -50%);
+  text-transform: uppercase;
+  color: #fff;
+  width: max-content;
+}
+
+.parent .back {
+  position: absolute;
+  background: #881fc7;
+  width: 100%;
+  height: 100%;
+  top: 110px;
+  z-index: -2;
+}
+
+.parent .back::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -7px;
+  width: 50%;
+  height: 30px;
+  background-color: #fff;
+  z-index: -1;
+  clip-path: polygon(100% 0%, 100% 50%, 26% 50%, 0 0);
+}
+
+.parent .overlay {
+  position: absolute;
+  width: 250px;
+  height: 125px;
+  top: 98%;
+  z-index: 3;
+  background: #fff;
+  pointer-events: none;
+}
+
+.parent #card {
+  position: absolute;
+  width: 225px;
+  height: 112.5px;
+  top: 52%;
+  left: 13px;
+}
+
+.parent #card .card-item {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 3px;
+  outline: 1px solid rgba(0, 0, 0, 0.5);
+  transition: all 0.35s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.parent #card .card-item:nth-of-type(1) {
+  top: -3px;
+}
+
+.parent #card .card-item:nth-of-type(2) {
+  top: 0;
+}
+
+.parent #card .card-item:nth-of-type(3) {
+  top: 3px;
+}
+
+.parent .hover:hover ~ #card .card-item:nth-of-type(1) {
+  transform: translateY(-225px) translateX(-147px) rotate(-374deg);
+  height: 150px;
+  width: 150px;
+  animation: float1 1s linear alternate infinite;
+  animation-delay: 0.3s;
+  filter: drop-shadow(2px 4px 6px #000);
+}
+
+.parent .hover:hover ~ #card .card-item:nth-of-type(2) {
+  transform: translateY(-250px) translateX(62px) rotate(360deg);
+  height: 150px;
+  width: 150px;
+  animation: float2 1s linear alternate infinite;
+  animation-delay: 0.3s;
+  filter: drop-shadow(2px 4px 6px #000);
+}
+
+.parent .hover:hover ~ #card .card-item:nth-of-type(3) {
+  transform: translateY(-225px) translateX(270px) rotate(377deg);
+  height: 150px;
+  width: 150px;
+  animation: float3 1s linear alternate infinite;
+  animation-delay: 0.3s;
+  filter: drop-shadow(2px 4px 6px #000);
+}
+
+.parent #card .card-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+@keyframes float1 {
+  from {
+    scale: 1;
+  }
+
+  to {
+    scale: 1.1;
+  }
+}
+
+@keyframes float2 {
+  from {
+    scale: 1;
+  }
+
+  to {
+    scale: 1.1;
+  }
+}
+
+@keyframes float3 {
+  from {
+    scale: 1;
+  }
+
+  to {
+    scale: 1.1;
+  }
+}
+
+footer {
+  width: 100%;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: absolute;
+  bottom: 0;
+  font-size: 20px;
+  text-align: center;
+  padding: 20px;
+}
+
+@media screen and (max-width: 991px) {
+  .parent .hover:hover ~ #card .card-item:nth-of-type(1),
+  .parent .hover:hover ~ #card .card-item:nth-of-type(2),
+  .parent .hover:hover ~ #card .card-item:nth-of-type(3) {
+    height: 120px;
+    width: 50%;
+  }
+
+  .parent .hover:hover ~ #card .card-item:nth-of-type(1) {
+    transform: translateY(-235px) translateX(-44px) rotate(-374deg);
+  }
+
+  .parent .hover:hover ~ #card .card-item:nth-of-type(2) {
+  }
+
+  .parent .hover:hover ~ #card .card-item:nth-of-type(3) {
+    transform: translateY(-237px) translateX(170px) rotate(377deg);
+  }
+}
